@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     loop = asyncio.get_event_loop()
 
-    args = [(user, mallink, sender) for user in users]
+    args = [(user, sender, mail_server) for user in users]
     tasks = itertools.starmap(send_email_async, args)
     loop.run_until_complete(asyncio.gather(*tasks))
     loop.close()
